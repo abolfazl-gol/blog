@@ -1,0 +1,9 @@
+tr
+  td.post-title= post.title.substr(0, 30) + "..."
+  td.post-body= post.body.substr(0, 50) + "..."
+  td.date
+    time.timeago(datetime="#{post.date.toISOString()}")
+  td 
+    a.button.primary-button(href="/blogs/#{blog._id}/posts/#{post._id}/delete") delete
+    span &nbsp;
+    a.button.primary-button(href="/blogs/#{blog._id}/posts/#{post._id}/edit") edit

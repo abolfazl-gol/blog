@@ -1,0 +1,28 @@
+extends ../_layout.jade
+
+block title
+  title New Post
+
+block content
+  .container
+    .row
+      .column.column-50.column-offset-25
+      
+        h2 New Post
+        - if (messages.info)
+          blockquote
+            p
+              em #{messages.info}
+
+        form(method="post", action="/blogs/#{blog._id}/posts")
+          fieldset
+            label(for='title') Title:
+            input(type="text", name="title")
+
+            label(for='body') Body:
+            textarea#post-body(rows="8", name="body")
+
+            .float-left
+              input(type="submit", value="create", class="button-primary")
+            .float-right
+              a.button.button-outline(href="/blogs/#{blog._id}/posts") Back

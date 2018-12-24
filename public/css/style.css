@@ -1,0 +1,25 @@
+.container {
+    padding-top: 40px;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .post-title {
+    font-size: 20px;
+  }
+
+  .post-body{
+    font-size: 16px;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  .date{
+    font-size: 14px;
+  }
+  #post-body{
+    
+    height: 20em;
+  }

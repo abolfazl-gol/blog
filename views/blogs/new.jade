@@ -1,0 +1,31 @@
+extends ../_layout.jade
+
+block title
+  title New Blog
+
+block content
+  .container
+    .row
+      .column.column-50.column-offset-25
+      
+        h2 New Blog
+        - if (messages.info)
+          blockquote
+            p
+              em #{messages.info}
+
+        form(method="post", action="/blogs")
+          fieldset
+            label(for='name') Name:
+            input(type="text", name="name")
+
+            label(for='title') Title:
+            input(type="text", name="title")
+
+            label(for='description') Description:
+            input(type="text", name="description")
+
+            .float-left
+              input(type="submit", value="create", class="button-primary")
+            .float-right
+              a.button.button-outline(href="/blogs") Back

@@ -1,0 +1,29 @@
+extends ../_layout.jade
+
+block title
+    title Login
+
+block content
+    .container
+        .row
+            .column.column-50.column-offset-25
+                
+                h1 Login
+
+                - if (messages.info)
+                    blockquote
+                        p
+                            em #{messages.info}
+
+                form(method="post", action="/users/login")
+                    fieldset
+                        label(for='email') Email:
+                        input(type="text", name="email")
+
+                        label(for='password') Password:
+                        input(type="password", name="password")
+
+                        .float-left
+                            input(type="submit", value="login", class="button-primary")
+                        .float-right
+                            a.button.button-outline(href="/users/register") Register here

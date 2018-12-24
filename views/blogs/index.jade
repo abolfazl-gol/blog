@@ -1,0 +1,25 @@
+extends ../_layout.jade
+
+block title
+  title Blogs
+
+block content
+  .container
+    .row
+      .column
+        .float-left
+          h2 Blogs
+        .float-right
+          a.button.button-outline(href="/blogs/new") new blog
+          
+        table
+          thead
+            tr
+              th name
+              th title
+              th description
+              th actions
+          tbody
+          
+            each blog in blogs
+              include ./row_item.jade

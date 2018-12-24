@@ -1,0 +1,10 @@
+tr
+  td= blog.name
+  td= blog.title
+  td= blog.description.substr(0, 40) + "..."
+  td 
+    a.button.primary-button(href="/blogs/#{blog._id}/delete") delete
+    span &nbsp;
+    a.button.primary-button(href="/blogs/#{blog._id}/edit") edit
+    span &nbsp;
+    a.button.primary-button(href="/blogs/#{blog._id}/posts") posts

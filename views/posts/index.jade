@@ -1,0 +1,28 @@
+extends ../_layout.jade
+
+block title
+  title Posts
+
+block content
+  .container
+    .row
+      .column
+        .float-left
+          h2 Posts for #{blog.title}
+        .float-right
+          a.button.button-outline(href="/blogs/#{blog._id}/posts/new") new posts
+          span &nbsp;
+          a.button.button-outline(href="/blogs") back
+          
+        table
+          thead
+            tr
+              th title
+              th body
+              th created_data
+              th actions
+          tbody
+          
+            each post in posts
+              include ./row_item.jade
+              

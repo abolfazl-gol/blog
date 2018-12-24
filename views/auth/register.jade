@@ -1,0 +1,32 @@
+extends ../_layout.jade
+
+block title
+    title Register
+
+block content
+    .container
+        .row
+            .column.column-50.column-offset-25
+                
+                h1 Register
+
+                - if (messages.info)
+                    blockquote
+                        p
+                            em #{messages.info}
+
+                form(method="post", action="/users/register")
+                    fieldset
+                        label(for='email') Email:
+                        input(type="text", name="email")
+
+                        label(for='name') Name:
+                        input(type="text", name="name")
+
+                        label(for='password') Password:
+                        input(type="password", name="password")
+
+                        label(for='password_confirmation') Password Confirmation:
+                        input(type="password", name="password_confirmation")
+
+                        input(type="submit", value="Send", class="button-primary")

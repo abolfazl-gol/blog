@@ -1,0 +1,14 @@
+extends ../_layout.jade
+
+block title
+  title= post.title 
+
+block content
+    .container
+        h3= post.title
+       
+        p.post-body= post.body
+
+        p= post.owner.name
+
+        a.button.button-outline(href="/#{blog.name}") Back

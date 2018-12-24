@@ -1,0 +1,18 @@
+extends ../_layout.jade
+
+block title
+  title= blog.title
+
+block content
+  .container
+    h2= blog.title
+    h3= blog.description
+
+    for post in blog.posts
+      p= post.title
+      p.post-body= post.body.substr(0, 300) + "..."
+
+      a.button.primary-button(href="/#{blog.name}/post/#{post.slug}") more
+
+      .float-right
+        p= blog.owner.name

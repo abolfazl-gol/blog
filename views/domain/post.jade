@@ -4,11 +4,36 @@ block title
   title= post.title 
 
 block content
-    .container
-        h3= post.title
-       
-        p.post-body= post.body
+  .container
+    .post
+      h3= post.title
+    
+      p.post-body= post.body
 
-        p= post.owner.name
+      p= post.owner.name
+    
+    .float-right
+      a#like-btn.button.button-outline.fa.fa-heart.like= post.likes || 0
+      
+    a.button.button-outline.like(href="/#{blog.name}") Back
 
-        a.button.button-outline(href="/#{blog.name}") Back
+    form(method="post", action="/#{blog.name}/post/#{post.slug}/comment")
+      fieldset
+        label(for="name") Name:
+        input(type="text", name="name")
+
+        label(for='comment') Comment:
+        textarea#post-comment(name="comment")
+
+        input(type="submit", value="send", class="button-primary")
+
+    h4 comments:
+    each comment in post.comments
+      blockquote
+        p
+          em
+            b=comment.name + ": "
+            = comment.body
+        time.timeago(datetime="#{comment.date.toISOString()}")
+
+            

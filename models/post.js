@@ -7,9 +7,11 @@ var postSchema = new Schema({
     title: { type: String, required: true },
     body: String,
     slug: { type: String },
+    likes: { type: Number },
     date: { type: Date, default: Date.now() },
     owner: { type: Schema.Types.ObjectId, ref: 'User' },
-    blog: { type: Schema.Types.ObjectId, ref: 'Blog' }
+    blog: { type: Schema.Types.ObjectId, ref: 'Blog' },
+    comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }]
 });
 
 var Post = mongoose.model('Post', postSchema)

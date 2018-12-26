@@ -60,6 +60,8 @@ router.post('/', findBlog, async (req, res) =>{
         title: title,
         slug: slug(title),
         body: body,
+        likes: 0,
+        dislike: 0,
         blog: req.blog._id,
         owner: req.session.user._id
     })

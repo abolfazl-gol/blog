@@ -5,14 +5,15 @@ block title
 
 block content
   .container
-    h2= blog.title
-    h3= blog.description
+    h1.center= blog.title
+    h3.center= blog.description
 
     for post in blog.posts
-      p= post.title
-      p.post-body= post.body.substr(0, 300) + "..."
+      .post
+        h4= post.title
+        p.post-body= post.body.substr(0, 300) + "..."
 
-      a.button.primary-button(href="/#{blog.name}/post/#{post.slug}") more
+        a.button.primary-button.fa.fa-ellipsis-h(href="/#{blog.name}/post/#{post.slug}")
 
-      .float-right
-        p= blog.owner.name
+        .float-right
+          p= blog.owner.name

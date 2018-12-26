@@ -1,9 +1,10 @@
 tr
-  td.post-title= post.title.substr(0, 30) + "..."
-  td.post-body= post.body.substr(0, 50) + "..."
+  td= post.title.substr(0, 15) + "..."
+  td= post.body.substr(0, 50) + "..."
   td.date
     time.timeago(datetime="#{post.date.toISOString()}")
+  td= post.comments.length
   td 
-    a.button.primary-button(href="/blogs/#{blog._id}/posts/#{post._id}/delete") delete
+    a.button.primary-button.fa.fa-trash.delete(href="/blogs/#{blog._id}/posts/#{post._id}/delete")
     span &nbsp;
-    a.button.primary-button(href="/blogs/#{blog._id}/posts/#{post._id}/edit") edit
+    a.button.primary-button.fa.fa-pencil-square-o.edit(href="/blogs/#{blog._id}/posts/#{post._id}/edit")

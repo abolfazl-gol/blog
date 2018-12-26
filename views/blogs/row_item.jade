@@ -1,10 +1,11 @@
 tr
+  
   td= blog.name
   td= blog.title
   td= blog.description.substr(0, 40) + "..."
   td 
-    a.button.primary-button(href="/blogs/#{blog._id}/delete") delete
+    a.button.primary-button.fa.fa-trash.delete(href="/blogs/#{blog._id}/delete")
     span &nbsp;
-    a.button.primary-button(href="/blogs/#{blog._id}/edit") edit
+    a.button.primary-button.fa.fa-pencil-square-o.edit(href="/blogs/#{blog._id}/edit")
     span &nbsp;
-    a.button.primary-button(href="/blogs/#{blog._id}/posts") posts
+    a.button.primary-button.fa.fa-file(href="/blogs/#{blog._id}/posts")

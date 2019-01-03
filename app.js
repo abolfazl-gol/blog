@@ -22,7 +22,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser('blog secret'))
 app.use(session({
-    store: new RedisStore({client: client, host: 'localhost', port: 6379}),
+    store: new RedisStore({ client: client, host: 'localhost', port: 6379 }),
     cookie: { maxAge: 800000 },
     secret: 'blog secret',
     resave: true,
@@ -38,6 +38,6 @@ app.use('/', domainRouter);
 
 app.get('/', async (req, res) => res.redirect('/blogs'))
 
-app.listen(port, () =>{
+app.listen(port, () => {
     console.log(`server is running on this port: http://localhost:${port}`)
 })
